@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.pyenv/
+.pipenv/
+.pycuda-env/
+*.egg-info/
+
+# CUDA build artifacts (if any)
+*.cu.o
+*.cubin
+
+# Jupyter Notebook checkpoints (in case you ever use notebooks)
+.ipynb_checkpoints/
+
+# VS Code settings (optional, if you use it)
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Python build artifacts
+build/
+dist/
+*.egg
+.eggs/
+
+# SQLite database files (optional, if you don't want them versioned)
+*.db
+
+# Logs and crash dumps
+*.log
+*.out
+*.err
+
+# pyproject.toml, setup.py, and README.md are intentionally *not* ignored
