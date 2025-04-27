@@ -1,37 +1,36 @@
-name: Upload Python Package to PyPI
+name: Publish Python 🐍 package to PyPI
 
 on:
-  release:
-    types: [published]
-
-permissions:
-  contents: read
-  id-token: write  # Required for trusted publishing
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers only on version tags like v0.1.0, v1.2.3
 
 jobs:
-  build-and-publish:
+  publish:
+    name: Build and Publish
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/project/echoverse/
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: '3.10'  # or whatever version you prefer
 
-      - name: Install dependencies
+      - name: Install build tools
         run: |
           python -m pip install --upgrade pip
-          pip install build
+          pip install build twine
 
       - name: Build package
         run: python -m build
 
       - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          packages-dir: dist/
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          python -m twine upload dist/*
+
