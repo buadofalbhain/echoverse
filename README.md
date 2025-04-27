@@ -183,9 +183,5 @@ MIT License — do whatever you want, just credit the work.
 Built with love by the open-source community—powered by CUDA, NumPy, and the spirit of discovery.
 
 ---
-
-<<<<<<< HEAD
-Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
-=======
 Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
 >>>>>>> 3bf7529 (Initial commit for echoverse)
