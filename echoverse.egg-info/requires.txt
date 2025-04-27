@@ -1,0 +1,9 @@
+numpy
+pycuda
+tqdm
+
+[app]
+streamlit
+
+[gpu]
+pycuda

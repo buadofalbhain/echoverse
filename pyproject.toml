@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [
-    { name = "Buad", email = "private" }
+    { name = "Buad", email = "dwallin73@msn.com" }
 ]
 keywords = ["semantic similarity", "GPU", "CUDA", "Bible resonance", "AI"]
 classifiers = [

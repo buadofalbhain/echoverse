@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+echoverse.egg-info/PKG-INFO
+echoverse.egg-info/SOURCES.txt
+echoverse.egg-info/dependency_links.txt
+echoverse.egg-info/requires.txt
+echoverse.egg-info/top_level.txt

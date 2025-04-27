@@ -4,7 +4,7 @@ setup(
     name="echoverse",
     version="0.1.0",
     author="Buad",
-    author_email="private",
+    author_email="dwallin73@msn.com",
     description="GPU-accelerated semantic similarity and verse resonance explorer.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
