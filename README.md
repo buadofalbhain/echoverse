@@ -184,4 +184,8 @@ Built with love by the open-source community—powered by CUDA, NumPy, and the s
 
 ---
 
+<<<<<<< HEAD
 Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
+=======
+Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
+>>>>>>> 3bf7529 (Initial commit for echoverse)
