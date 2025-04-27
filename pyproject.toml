@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "echoverse"
+version = "0.1.0"
+description = "GPU-accelerated semantic similarity and verse resonance explorer."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Buad", email = "private" }
+]
+keywords = ["semantic similarity", "GPU", "CUDA", "Bible resonance", "AI"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Database"
+]
+dependencies = [
+    "numpy",
+    "pycuda",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+gpu = ["pycuda"]
+app = ["streamlit"]
+
+[project.urls]
+Homepage = "https://github.com/buadofalbhain/echoverse"
+Repository = "https://github.com/buadofalbhain/echoverse"
+Issues = "https://github.com/buadofalbhain/echoverse/issues"
