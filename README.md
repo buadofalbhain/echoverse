@@ -1,0 +1,191 @@
+# echoverse
+
+![License](https://img.shields.io/github/license/buadofalbhain/echoverse)
+![Python Version](https://img.shields.io/badge/python-3.8+-blue)
+![GPU Accelerated](https://img.shields.io/badge/GPU-accelerated-brightgreen)
+
+> **Find hidden echoes across massive text corpora—with GPU power.**
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Use Cases](#use-cases)
+- [Quick Example](#quick-example)
+- [CLI Usage](#cli-usage)
+- [Output Format](#output-format)
+- [Benchmarks](#benchmarks)
+- [API Reference](#api-reference)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+---
+
+## Overview
+
+**echoverse** is a Python module and CLI tool for discovering semantically similar pairs (“echoes”) in large collections of text. Whether you're analyzing verse, literature, or academic works, echoverse uses GPU acceleration (CUDA) to make it feasible to compare millions or billions of text pairs in minutes.
+
+Use it to uncover thematic resonance, detect plagiarism, power search engines, or build next-gen literary analysis tools.
+
+---
+
+## Features
+
+- ✨ **All-pairs semantic similarity**: Find every matching text pair above a given threshold.
+- ⚡ **GPU acceleration**: Built with CUDA and NumPy for extreme performance.
+- 💾 **Flexible I/O**: Accepts any embedding model, exports to clean CSV format.
+- 🚀 **CLI & Library ready**: Use as a standalone tool or integrate into your Python workflow.
+- 🔧 **Batch-safe**: Handles large-scale embeddings with chunking and memory control.
+- ⚖️ **Configurable**: Tune thresholds, verbosity, filtering, and more.
+
+---
+
+## Installation
+
+```bash
+pip install echoverse
+# Or clone from source:
+# git clone https://github.com/buadofalbhain/echoverse.git
+# cd echoverse
+# pip install .
+```
+
+---
+
+## Requirements
+
+- Python 3.8+
+- PyCUDA
+- NumPy
+- (Optional) tqdm for progress bars
+
+> ⚠️ **Requires a CUDA-capable NVIDIA GPU (Compute Capability ≥ 6.1).**
+
+---
+
+## Use Cases
+
+- **Plagiarism Detection & Proof of Ownership**: Detect semantically similar passages, even when reworded. Prove authorship by tracing echoes of original work across other texts.
+- **Literary Analysis & Intertextuality**: Explore hidden connections between verses, books, or traditions. Build resonance maps between authors, genres, or historical periods.
+- **Content Recommendation**: Suggest similar articles, verses, or ideas based on deep meaning.
+- **Dataset Deduplication & Clustering**: Eliminate redundancy and group similar entries intelligently.
+- **Semantic Search & Retrieval**: Power AI-enhanced search engines for textual archives.
+
+---
+
+## Quick Example
+
+```python
+from echoverse import compute_all_pairs_batched_gpu, normalize_embeddings
+import numpy as np
+
+# Load and normalize your embeddings
+embeddings = np.load("my_corpus_embeddings.npy")
+embeddings = normalize_embeddings(embeddings)
+
+# Find all pairs above 0.85 similarity
+results = compute_all_pairs_batched_gpu(embeddings, threshold=0.85)
+
+# results is a NumPy structured array: (index1, index2, similarity)
+```
+
+---
+
+## CLI Usage
+
+```bash
+python -m echoverse_cli \
+  --input my_embeddings.json \
+  --output echoes.csv \
+  --threshold 0.85 \
+  --mode allpairs
+```
+
+---
+
+## Output Format
+
+The output CSV contains:
+
+| Column         | Description                                 |
+|----------------|---------------------------------------------|
+| ID1            | Index or ID of the first text/verse         |
+| ID2            | Index or ID of the second text/verse        |
+| Similarity     | Cosine similarity score (float)             |
+| Text1 (opt.)   | Text of the first item (if available)       |
+| Text2 (opt.)   | Text of the second item (if available)      |
+
+Example:
+```
+ID1,ID2,Similarity,Text1,Text2
+42,311,0.876,"In the beginning...","And so it was..."
+...
+```
+
+---
+
+## Benchmarks
+
+| Dataset Size | Pairs Compared | Runtime (A100 GPU) | Notes         |
+|--------------|----------------|--------------------|---------------|
+| 10k          | ~50M           | ~45 seconds        | Medium corpus |
+| 100k         | ~5B            | ~12 minutes        | Large corpus  |
+| 250k         | ~31B           | ~1 hour            | Bible-scale   |
+
+> 🔄 CPU version would take **days to weeks** for the same tasks.
+
+---
+
+## API Reference
+
+- `normalize_embeddings(np.ndarray) -> np.ndarray`
+- `compute_all_pairs_batched_gpu(np.ndarray, threshold: float) -> np.ndarray`
+- `compute_similarity_cuda_filtered(np.ndarray, threshold: float) -> np.ndarray`
+
+See [docs/](docs/) for detailed parameters, modes, and customization options.
+
+---
+
+## Roadmap
+
+- [ ] CPU fallback mode
+- [ ] Sparse matrix mode for memory-constrained environments
+- [ ] LangChain / HuggingFace integration
+- [ ] Interactive web-based visualization of echo networks
+
+---
+
+## Contributing
+
+We welcome contributions of all kinds:
+- New features, bug fixes, and optimization ideas
+- Documentation, tutorials, and example datasets
+- Integrations with external tools or frameworks
+
+See [CONTRIBUTING.md](https://github.com/buadofalbhain/echoverse/blob/main/CONTRIBUTING.md) to get started.
+
+---
+
+## License
+
+MIT License — do whatever you want, just credit the work.
+
+---
+
+## Acknowledgments
+
+Built with love by the open-source community—powered by CUDA, NumPy, and the spirit of discovery.
+
+---
+
+<<<<<<< HEAD
+Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
+=======
+Ready to dive in? [Get started here →](https://github.com/buadofalbhain/echoverse)
+>>>>>>> 3bf7529 (Initial commit for echoverse)
